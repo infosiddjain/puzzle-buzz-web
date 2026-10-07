@@ -21,31 +21,35 @@ const NAV = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-bg/80 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="" width={36} height={36} className="rounded-xl" />
-          <span className="text-xl font-black">
-            Puzzle<span className="text-gold">Buzz</span>
-          </span>
-        </Link>
-        <ul className="hidden items-center gap-6 text-sm font-bold text-dim md:flex">
-          {NAV.map(n => (
-            <li key={n.href}>
-              <Link href={n.href} className="transition hover:text-white">
-                {n.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Link
-          href="/#contact"
-          className="rounded-full bg-gradient-to-r from-[#7C3AED] to-[#C026D3] px-4 py-2 text-sm font-extrabold md:hidden"
-        >
-          Contact
-        </Link>
-      </nav>
-    </header>
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-white/5 bg-bg/85 backdrop-blur">
+        <nav className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 sm:px-6">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo.png" alt="" width={36} height={36} className="rounded-xl" />
+            <span className="text-xl font-black">
+              Puzzle<span className="text-gold">Buzz</span>
+            </span>
+          </Link>
+          <ul className="hidden items-center gap-6 text-sm font-bold text-dim md:flex">
+            {NAV.map(n => (
+              <li key={n.href}>
+                <Link href={n.href} className="transition hover:text-white">
+                  {n.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/#contact"
+            className="rounded-full bg-gradient-to-r from-[#7C3AED] to-[#C026D3] px-4 py-2 text-sm font-extrabold md:hidden"
+          >
+            Contact
+          </Link>
+        </nav>
+      </header>
+      {/* Spacer so page content starts below the fixed header */}
+      <div aria-hidden="true" className="h-16" />
+    </>
   );
 }
 

@@ -1,27 +1,55 @@
 import Image from "next/image";
+import {
+  mdiAccountGroup,
+  mdiAlphabeticalVariant,
+  mdiBank,
+  mdiBrain,
+  mdiCalculatorVariant,
+  mdiCards,
+  mdiChartTimelineVariant,
+  mdiCircleMultiple,
+  mdiEarth,
+  mdiEmail,
+  mdiEmoticonHappy,
+  mdiFire,
+  mdiFlask,
+  mdiHeadQuestion,
+  mdiHeart,
+  mdiLightbulbOn,
+  mdiLock,
+  mdiOpenInNew,
+  mdiPuzzle,
+  mdiRocketLaunch,
+  mdiSchool,
+  mdiSkull,
+  mdiSprout,
+  mdiTarget,
+  mdiTimerSand,
+} from "@mdi/js";
+import Icon from "./Icon";
 import ContactForm from "./ContactForm";
 import { SITE, SiteFooter, SiteHeader } from "./site";
 
 const CATEGORIES = [
-  { emoji: "❓", title: "Riddles", subtitle: "Think outside the box", from: "#8B5CF6", to: "#6366F1",
+  { icon: mdiHeadQuestion, title: "Riddles", subtitle: "Think outside the box", from: "#8B5CF6", to: "#6366F1",
     text: "Classic brain teasers that twist words and meaning. The obvious answer is rarely the right one." },
-  { emoji: "🧠", title: "Logic Lab", subtitle: "Deduce like a detective", from: "#EC4899", to: "#F43F5E",
+  { icon: mdiBrain, title: "Logic Lab", subtitle: "Deduce like a detective", from: "#EC4899", to: "#F43F5E",
     text: "Puzzles of reasoning, deduction and lateral thinking. Every clue matters." },
-  { emoji: "🧮", title: "Math Mania", subtitle: "Fast mental arithmetic", from: "#F59E0B", to: "#EF4444",
+  { icon: mdiCalculatorVariant, title: "Math Mania", subtitle: "Fast mental arithmetic", from: "#F59E0B", to: "#EF4444",
     text: "Endless freshly generated sums. Sharpen your mental maths and beat the clock." },
-  { emoji: "📈", title: "Number Patterns", subtitle: "Find what comes next", from: "#10B981", to: "#0D9488",
+  { icon: mdiChartTimelineVariant, title: "Number Patterns", subtitle: "Find what comes next", from: "#10B981", to: "#0D9488",
     text: "Spot the hidden rule behind each sequence, from famous maths to nature." },
-  { emoji: "🔤", title: "Word Scramble", subtitle: "Unjumble the letters", from: "#06B6D4", to: "#3B82F6",
+  { icon: mdiAlphabeticalVariant, title: "Word Scramble", subtitle: "Unjumble the letters", from: "#06B6D4", to: "#3B82F6",
     text: "Use the clue, tap the tiles in order and rebuild the hidden word." },
-  { emoji: "🃏", title: "Memory Match", subtitle: "Flip and find pairs", from: "#F97316", to: "#DB2777",
+  { icon: mdiCards, title: "Memory Match", subtitle: "Flip and find pairs", from: "#F97316", to: "#DB2777",
     text: "Match the pairs in as few moves as possible. A workout for your memory." },
-  { emoji: "🌍", title: "General Knowledge", subtitle: "The world in questions", from: "#3B82F6", to: "#8B5CF6",
+  { icon: mdiEarth, title: "General Knowledge", subtitle: "The world in questions", from: "#3B82F6", to: "#8B5CF6",
     text: "Geography, culture and everyday wonders — a surprising fact with every answer." },
-  { emoji: "🧪", title: "Science Lab", subtitle: "How the world works", from: "#14B8A6", to: "#22C55E",
+  { icon: mdiFlask, title: "Science Lab", subtitle: "How the world works", from: "#14B8A6", to: "#22C55E",
     text: "Biology, chemistry and physics made fun." },
-  { emoji: "🏛️", title: "History Hunt", subtitle: "Travel through time", from: "#EAB308", to: "#EA580C",
+  { icon: mdiBank, title: "History Hunt", subtitle: "Travel through time", from: "#EAB308", to: "#EA580C",
     text: "Ancient wonders, great inventions and the people who shaped our world." },
-  { emoji: "🚀", title: "Space Explorer", subtitle: "Planets, stars & beyond", from: "#6366F1", to: "#0EA5E9",
+  { icon: mdiRocketLaunch, title: "Space Explorer", subtitle: "Planets, stars & beyond", from: "#6366F1", to: "#0EA5E9",
     text: "Blast off through the solar system and discover the record-breakers of the universe." },
 ];
 
@@ -34,9 +62,9 @@ const STEPS = [
 ];
 
 const DIFFICULTIES = [
-  { emoji: "🌱", label: "Easy", color: "#22C55E", seconds: 25, mult: "×1" },
-  { emoji: "🔥", label: "Medium", color: "#F59E0B", seconds: 18, mult: "×1.5" },
-  { emoji: "💀", label: "Hard", color: "#F43F5E", seconds: 12, mult: "×2" },
+  { icon: mdiSprout, label: "Easy", color: "#22C55E", seconds: 25, mult: "×1" },
+  { icon: mdiFire, label: "Medium", color: "#F59E0B", seconds: 18, mult: "×1.5" },
+  { icon: mdiSkull, label: "Hard", color: "#F43F5E", seconds: 12, mult: "×2" },
 ];
 
 const REWARDS = [
@@ -55,10 +83,10 @@ const POWER_UPS = [
 ];
 
 const VALUES = [
-  { emoji: "🎓", title: "Learning first", text: "Every puzzle teaches something real." },
-  { emoji: "😄", title: "Pure fun", text: "Short rounds, big smiles, no pressure." },
-  { emoji: "🔒", title: "Privacy", text: "No accounts, no tracking, no ads." },
-  { emoji: "👨‍👩‍👧", title: "For everyone", text: "Friendly for curious minds of all ages." },
+  { icon: mdiSchool, color: "#8B5CF6", title: "Learning first", text: "Every puzzle teaches something real." },
+  { icon: mdiEmoticonHappy, color: "#FBBF24", title: "Pure fun", text: "Short rounds, big smiles, no pressure." },
+  { icon: mdiLock, color: "#22C55E", title: "Privacy", text: "No accounts, no tracking, no ads." },
+  { icon: mdiAccountGroup, color: "#22D3EE", title: "For everyone", text: "Friendly for curious minds of all ages." },
 ];
 
 function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
@@ -82,8 +110,9 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.35),transparent_60%)]" />
           <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 md:py-28">
             <div className="text-center md:text-left">
-              <p className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-bold text-dim">
-                🧩 A mind puzzle game for everyone
+              <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-bold text-dim">
+                <Icon path={mdiPuzzle} className="h-4 w-4 text-gold" />
+                A mind puzzle game for everyone
               </p>
               <h1 className="mt-6 text-5xl font-black leading-tight tracking-tight sm:text-6xl">
                 Train your brain.
@@ -152,10 +181,10 @@ export default function Home() {
                   className="group rounded-3xl border border-white/10 bg-surface p-6 transition hover:-translate-y-1 hover:border-white/20"
                 >
                   <div
-                    className="flex h-14 w-14 items-center justify-center rounded-2xl text-3xl shadow-lg"
+                    className="flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg"
                     style={{ backgroundImage: `linear-gradient(135deg, ${c.from}, ${c.to})` }}
                   >
-                    {c.emoji}
+                    <Icon path={c.icon} className="h-8 w-8" />
                   </div>
                   <h3 className="mt-4 text-xl font-extrabold">{c.title}</h3>
                   <p className="text-sm font-bold" style={{ color: c.from }}>
@@ -192,7 +221,9 @@ export default function Home() {
                 <div className="mt-5 space-y-3">
                   {DIFFICULTIES.map(d => (
                     <div key={d.label} className="flex items-center gap-4 rounded-2xl bg-white/5 p-4">
-                      <span className="text-2xl">{d.emoji}</span>
+                      <span style={{ color: d.color }}>
+                        <Icon path={d.icon} className="h-7 w-7" />
+                      </span>
                       <span className="w-20 font-extrabold" style={{ color: d.color }}>
                         {d.label}
                       </span>
@@ -208,8 +239,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <PriceList title="🪙 Coins & rewards" rows={REWARDS} />
-              <PriceList title="💡 Power-ups" rows={POWER_UPS} />
+              <PriceList icon={mdiCircleMultiple} title="Coins & rewards" rows={REWARDS} />
+              <PriceList icon={mdiLightbulbOn} title="Power-ups" rows={POWER_UPS} />
             </div>
           </div>
         </section>
@@ -225,7 +256,12 @@ export default function Home() {
             <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {VALUES.map(v => (
                 <div key={v.title} className="rounded-3xl border border-white/10 bg-surface p-6">
-                  <div className="text-3xl">{v.emoji}</div>
+                  <div
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl"
+                    style={{ backgroundColor: `${v.color}22`, color: v.color }}
+                  >
+                    <Icon path={v.icon} className="h-7 w-7" />
+                  </div>
                   <h3 className="mt-3 text-lg font-extrabold">{v.title}</h3>
                   <p className="mt-1 text-sm text-dim">{v.text}</p>
                 </div>
@@ -233,14 +269,20 @@ export default function Home() {
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <div className="rounded-3xl border border-white/10 bg-surface p-6 sm:p-8">
-                <h3 className="text-xl font-extrabold">🎯 Our mission</h3>
+                <h3 className="flex items-center gap-2 text-xl font-extrabold">
+                  <Icon path={mdiTarget} className="h-6 w-6 text-gold" />
+                  Our mission
+                </h3>
                 <p className="mt-3 text-dim">
                   To make everyday brain training fun, fair and genuinely educational. We hand-pick every
                   riddle, fact and pattern so you can trust what you learn — and enjoy learning it.
                 </p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-surface p-6 sm:p-8">
-                <h3 className="text-xl font-extrabold">❤️ Made with care</h3>
+                <h3 className="flex items-center gap-2 text-xl font-extrabold">
+                  <Icon path={mdiHeart} className="h-6 w-6 text-error" />
+                  Made with care
+                </h3>
                 <p className="mt-3 text-dim">
                   Puzzle Buzz is designed and developed by Siddharth Jain, a lifelong puzzle lover. Every
                   message is read — if you have an idea for a new puzzle, get in touch below.
@@ -284,9 +326,10 @@ export default function Home() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-full border border-white/15 px-5 py-2 text-sm font-extrabold transition hover:bg-white/5"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-5 py-2 text-sm font-extrabold transition hover:bg-white/5"
                     >
-                      {label} ↗
+                      {label}
+                      <Icon path={mdiOpenInNew} className="h-4 w-4" />
                     </a>
                   ))}
                 </div>
@@ -309,14 +352,18 @@ export default function Home() {
                   href={`mailto:${SITE.supportEmail}`}
                   className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface p-4 transition hover:border-white/20"
                 >
-                  <span className="text-2xl">✉️</span>
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-primary">
+                    <Icon path={mdiEmail} />
+                  </span>
                   <span>
                     <span className="block text-xs font-bold uppercase tracking-wider text-muted">Email</span>
                     <span className="font-bold">{SITE.supportEmail}</span>
                   </span>
                 </a>
                 <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface p-4">
-                  <span className="text-2xl">⏱️</span>
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan/20 text-cyan">
+                    <Icon path={mdiTimerSand} />
+                  </span>
                   <span>
                     <span className="block text-xs font-bold uppercase tracking-wider text-muted">Response time</span>
                     <span className="font-bold">Usually within 48 hours</span>
@@ -334,10 +381,13 @@ export default function Home() {
   );
 }
 
-function PriceList({ title, rows }: { title: string; rows: string[][] }) {
+function PriceList({ icon, title, rows }: { icon: string; title: string; rows: string[][] }) {
   return (
     <div className="rounded-3xl border border-white/10 bg-surface p-6 sm:p-8">
-      <h3 className="text-xl font-extrabold">{title}</h3>
+      <h3 className="flex items-center gap-2 text-xl font-extrabold">
+        <Icon path={icon} className="h-6 w-6 text-gold" />
+        {title}
+      </h3>
       <dl className="mt-4 divide-y divide-white/10">
         {rows.map(([label, value]) => (
           <div key={label} className="flex items-center justify-between gap-4 py-3">

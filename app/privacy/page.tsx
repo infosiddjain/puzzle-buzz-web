@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { mdiArrowLeft, mdiShieldCheck } from "@mdi/js";
+import Icon from "../Icon";
 import { SITE, SiteFooter, SiteHeader } from "../site";
 
 export const metadata: Metadata = {
@@ -47,15 +49,18 @@ export default function PrivacyPage() {
       <main className="relative">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.3),transparent_65%)]" />
         <div className="relative mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-          <Link href="/" className="text-sm font-bold text-dim hover:text-white">
-            ← Back to home
+          <Link href="/" className="inline-flex items-center gap-1.5 text-sm font-bold text-dim hover:text-white">
+            <Icon path={mdiArrowLeft} className="h-4 w-4" />
+            Back to home
           </Link>
           <p className="mt-8 text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Privacy policy</p>
           <h1 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Your data stays yours</h1>
           <p className="mt-4 text-lg text-dim">Last updated {SITE.policyUpdated}</p>
 
           <div className="mt-10 flex items-center gap-4 rounded-3xl border border-success/35 bg-success/10 p-6">
-            <span className="text-4xl">🛡️</span>
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-success/20 text-success">
+              <Icon path={mdiShieldCheck} className="h-8 w-8" />
+            </span>
             <div>
               <h2 className="text-lg font-extrabold">Privacy in short</h2>
               <p className="text-dim">No accounts. No ads. No tracking. Your progress stays on your device.</p>

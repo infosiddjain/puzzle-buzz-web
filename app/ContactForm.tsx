@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { mdiCheckCircle } from "@mdi/js";
+import Icon from "./Icon";
 
 const TOPICS = ["Feedback", "Bug report", "Puzzle idea", "Other"];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,7 +33,9 @@ export default function ContactForm({ supportEmail }: { supportEmail: string }) 
   if (sent) {
     return (
       <div className="rounded-3xl border border-success/40 bg-success/10 p-8 text-center">
-        <div className="text-5xl">✅</div>
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-success/20 text-success">
+          <Icon path={mdiCheckCircle} className="h-10 w-10" />
+        </div>
         <h3 className="mt-4 text-2xl font-extrabold">Thanks, {name.trim()}!</h3>
         <p className="mt-2 text-dim">
           Your email app should open with your message ready to send. If it didn&apos;t, write to us at{" "}
