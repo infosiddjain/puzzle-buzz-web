@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   mdiAccountGroup,
   mdiAlphabeticalVariant,
+  mdiArrowRight,
   mdiBank,
   mdiBrain,
   mdiCalculatorVariant,
@@ -24,10 +26,8 @@ import {
   mdiSkull,
   mdiSprout,
   mdiTarget,
-  mdiTimerSand,
 } from "@mdi/js";
 import Icon from "./Icon";
-import ContactForm from "./ContactForm";
 import { SITE, SiteFooter, SiteHeader } from "./site";
 
 const CATEGORIES = [
@@ -338,40 +338,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact */}
+        {/* Contact CTA */}
         <section id="contact" className="bg-bg-alt py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr]">
-            <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Contact us</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">We’d love to hear from you</h2>
-              <p className="mt-4 text-lg text-dim">
-                Feedback, a bug, or an idea for a new puzzle? Send us a message.
-              </p>
-              <div className="mt-8 space-y-3">
-                <a
-                  href={`mailto:${SITE.supportEmail}`}
-                  className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface p-4 transition hover:border-white/20"
-                >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-primary">
-                    <Icon path={mdiEmail} />
-                  </span>
-                  <span>
-                    <span className="block text-xs font-bold uppercase tracking-wider text-muted">Email</span>
-                    <span className="font-bold">{SITE.supportEmail}</span>
-                  </span>
-                </a>
-                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface p-4">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan/20 text-cyan">
-                    <Icon path={mdiTimerSand} />
-                  </span>
-                  <span>
-                    <span className="block text-xs font-bold uppercase tracking-wider text-muted">Response time</span>
-                    <span className="font-bold">Usually within 48 hours</span>
-                  </span>
-                </div>
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <div className="flex flex-col items-center gap-6 rounded-3xl border border-white/10 bg-surface p-8 text-center sm:p-10 md:flex-row md:text-left">
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7C3AED] to-[#C026D3]">
+                <Icon path={mdiEmail} className="h-8 w-8" />
+              </span>
+              <div className="flex-1">
+                <h2 className="text-2xl font-black tracking-tight sm:text-3xl">We’d love to hear from you</h2>
+                <p className="mt-2 text-dim">Feedback, a bug, or an idea for a new puzzle? Send us a message.</p>
               </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#C026D3] px-7 py-3.5 font-extrabold shadow-lg shadow-primary/30 transition hover:brightness-110"
+              >
+                Contact us
+                <Icon path={mdiArrowRight} className="h-5 w-5" />
+              </Link>
             </div>
-            <ContactForm supportEmail={SITE.supportEmail} />
           </div>
         </section>
       </main>

@@ -89,7 +89,7 @@ export default function PrivacyPage() {
                   {SITE.supportEmail}
                 </a>{" "}
                 or use the{" "}
-                <Link href="/#contact" className="font-bold text-gold">
+                <Link href="/contact" className="font-bold text-gold">
                   contact form
                 </Link>
                 .

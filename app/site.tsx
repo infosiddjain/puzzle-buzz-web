@@ -16,7 +16,7 @@ const NAV = [
   { href: "/#about", label: "About" },
   { href: "/#developer", label: "Developer" },
   { href: "/privacy", label: "Privacy" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -40,7 +40,7 @@ export function SiteHeader() {
             ))}
           </ul>
           <Link
-            href="/#contact"
+            href="/contact"
             className="rounded-full bg-gradient-to-r from-[#7C3AED] to-[#C026D3] px-4 py-2 text-sm font-extrabold md:hidden"
           >
             Contact
